@@ -2,7 +2,7 @@ import torch
 from torch.autograd import Variable
 import torchvision.models as models
 import torchvision.transforms as T
-from PIL import Image
+from PIL import Image # Python Imaging Library
 import matplotlib.pyplot as plt
 import numpy as np
 import sys
@@ -32,6 +32,7 @@ def compute_saliency_map(model, img_tensor):
     
     # Backward pass to compute gradients with respect to the predicted class
     model.zero_grad()
+    # import ipdb; ipdb.set_trace()
     output[0, predicted_class].backward()
     
     # Get the saliency map (absolute value of gradients)
